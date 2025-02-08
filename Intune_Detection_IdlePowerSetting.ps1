@@ -2,6 +2,7 @@
 # Detects the Idle Power Saving property on all network adapters, if it exists. Created due to an issue with Cisco AnyConnect VPN dropping through docking monitors. This is especially prevalent/necessary with everyone who uses Cisco Finesse. Specifically created for ticket# 00615097
 # Created: jfrocco 2/8/2025, pretend this is a signed PS script.
 
+
 try{
 
     $IdlePowerSaving = (Get-NetAdapterAdvancedProperty -RegistryKeyword EnableExtraPowerSaving -ErrorAction Stop).RegistryValue
