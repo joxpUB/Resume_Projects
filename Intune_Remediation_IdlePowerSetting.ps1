@@ -15,7 +15,7 @@ try{
     exit 0
 }
 catch{
-    # EnableExtraPowerSaving likely does not exist if it gets here!
+    # EnableExtraPowerSaving likely does not exist if it gets here! Or something went wrong.
     Write-Error "($_.Exception.Message)"
-    exit 0
+    exit 1
 }
