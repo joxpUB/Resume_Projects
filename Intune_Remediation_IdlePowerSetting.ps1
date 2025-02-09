@@ -8,7 +8,7 @@ try{
 
     $IdlePowerSaving = (Get-NetAdapterAdvancedProperty -RegistryKeyword EnableExtraPowerSaving -ErrorAction Stop).RegistryValue
 
-    # If the EnableExtraPowerSaving (AKA Idle Power Saving) keyword exists, disable it but do not restart the network adapter. Else, do nothing!
+    # If the EnableExtraPowerSaving (AKA Idle Power Saving) keyword exists and is not disabled, disable it but do not restart the network adapter. Else, do nothing!
     if($IdlePowerSaving -ne "0"){
         Set-NetAdapterAdvancedProperty -RegistryKeyword "EnableExtraPowerSaving" -RegistryValue "0" -NoRestart # This change will not take effect until the network adapter restarts, so as not to distrupt startup processes.
 
