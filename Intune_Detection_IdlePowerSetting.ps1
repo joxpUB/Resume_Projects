@@ -7,6 +7,7 @@ try{
 
     $IdlePowerSaving = (Get-NetAdapterAdvancedProperty -RegistryKeyword EnableExtraPowerSaving -ErrorAction Stop).RegistryValue
 
+    # If the EnableExtraPowerSaving (AKA Idle Power Saving) keyword exists and is not disabled, remediate. Else there is no need to remediate.
     if($IdlePowerSaving -ne "0"){
         Write-Host "Idle Power Saving is enabled, this will be remediated."
         exit 1
